@@ -1,4 +1,4 @@
-#Login to source registry
+# Login to source registry
 docker login -u $INPUT_HRB_USER -p $INPUT_HRB_PSW $INPUT_HRB_HOST
 
 filename=$GITHUB_WORKSPACE/$INPUT_CONFIG_FILE
