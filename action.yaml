@@ -7,7 +7,7 @@ inputs:
     required: true
   HRB_HOST:
     description: 'Source registry (Harbor)'
-    required: false
+    required: true
   HRB_USER:
     description: 'Source registry user'
     required: true
@@ -16,16 +16,15 @@ inputs:
     required: true
   ACR_HOST:
     description: 'Destination registry (ACR)'
-    required: false   
+    required: true   
   ACR_USER:
     description: 'Destination registry user'
     required: true
   ACR_PSW:
     description: 'Destination registry password'
     required: true
-outputs:    
 runs:
   using: "composite"
   steps: 
-    - run: $GITHUB_ACTION_PATH/entrypoint.sh
+    - run: $GITHUB_ACTION_PATH/script.sh
       shell: bash       
