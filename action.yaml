@@ -1,0 +1,31 @@
+# action.yaml
+name: 'Registries images synchronization'
+description: 'Synchronize images between source and dest registries'
+inputs:
+  CONFIG_FILE:
+    description: 'File with images to be sync'
+    required: true
+  HRB_HOST:
+    description: 'Source registry (Harbor)'
+    required: false
+  HRB_USER:
+    description: 'Source registry user'
+    required: true
+  HRB_PSW:
+    description: 'Destination registry password'
+    required: true
+  ACR_HOST:
+    description: 'Destination registry (ACR)'
+    required: false   
+  ACR_USER:
+    description: 'Destination registry user'
+    required: true
+  ACR_PSW:
+    description: 'Destination registry password'
+    required: true
+outputs:    
+runs:
+  using: "composite"
+  steps: 
+    - run: $GITHUB_ACTION_PATH/entrypoint.sh
+      shell: bash       
